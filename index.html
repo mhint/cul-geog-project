@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang='en'>
+    <head>
+        <meta charset='utf-8'>
+        <meta name='viewport' content='width=device-width, initial-scale=1'>
+
+        <link rel='stylesheet' type='text/css' href='css/site.css'>
+        <link href='https://fonts.googleapis.com/icon?family=Material+Icons' rel='stylesheet'>
+
+        <link rel='preconnect' href='https://fonts.gstatic.com'>
+        <link href='https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap' rel='stylesheet'>
+  
+        <script src='lib/jquery/3.5.1/jquery.min.js'></script>
+        <script src='lib/Leaflet.EdgeBuffer/leaflet.edgebuffer.js'></script>
+        <script src='lib/RainbowVis-JS/rainbowvis.js'></script>
+
+        <link rel='stylesheet' href='https://unpkg.com/leaflet@1.7.1/dist/leaflet.css'
+        integrity='sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=='
+        crossorigin=''/>
+        <script src='https://unpkg.com/leaflet@1.7.1/dist/leaflet.js'
+        integrity='sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=='
+        crossorigin=''></script>
+        
+        <title>How COVID-19 Remapped My World</title>
+        <style>
+            #linkto-home.nav-link::after {
+                visibility: visible;
+            }
+        </style>
+    </head>
+    <body onload='animateText()'>
+        <div id='nav'>
+            <div id='nav-top'>
+                <div id='nav-link-row'>
+                    <a href='../index.html' title='Exit'><div id='nav-link-home' class='material-icons'>transit_enterexit</div></a>
+                    <a href='index.html' id='linkto-home' class='nav-link' title='Home - How COVID-19 Remapped My World'>
+                        <div>HOME</div>
+                    </a>
+                    <a href='overview.html' id='linkto-overview' class='nav-link' title='Overview: Before and After March 2020'>
+                        <div>OVERVIEW</div>
+                    </a>
+                    <a href='timeline.html' id='linkto-timeline' class='nav-link' title='Timeline: 2019-20 By Month'>
+                        <div>TIMELINE</div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div id='content-wrapper'>
+            <div id='title-text-wrapper'>
+                <div id='title-text-box'>
+                    <span></span>
+                    <div class='text-style0 title-text'>HOW</div><br>
+                    <div class='text-style1 title-text'>COVID-19</div><br>
+                    <div class='text-style0 title-text'>REMAPPED MY</div><br>
+                    <div class='text-style0 title-text'>WORLD</div>
+                </div>
+            </div>
+            <script>
+                setTimeout(function() {
+                    $('.title-text').css('transition', 'none');
+                }, 2000);
+            </script>
+            <div class='button-row'>
+                <div class='large-button' onclick='window.location.href="overview.html"'>
+                    <span>OVERVIEW MAP</span><span class='material-icons'>chevron_right</span>
+                </div>
+                <div class='large-button' onclick='window.location.href="timeline.html"'>
+                    <span>TIMELINE MAP</span><span class='material-icons'>chevron_right</span>
+                </div>
+            </div>
+            <script>
+                const animateText = () => {
+                    $('.text-style0').addClass('loaded');
+                    $('.text-style1').addClass('loaded');
+                }
+            </script>
+        </div>
+        <script>
+            if (/Trident\/|MSIE /.test(window.navigator.userAgent)) {
+                $('body').html('Your browser is not supported.');
+            }
+        </script>
+    </body>
+</html>

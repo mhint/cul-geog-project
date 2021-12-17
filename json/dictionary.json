@@ -1,0 +1,407 @@
+{
+    "dictionary": [
+        {
+            "key": "101taiwanese",
+            "name": "101 Taiwanese Cuisine",
+            "latLng": [39.529938,-119.820188]
+        },
+        {
+            "key": "7eleven_nvirginia",
+            "name": "7-Eleven",
+            "latLng": [39.547938,-119.821687]
+        },
+        {
+            "key": "apple_summit",
+            "name": "Apple Summit Sierra",
+            "latLng": [39.403063,-119.752062]
+        },
+        {
+            "key": "archies",
+            "name": "Archie's",
+            "latLng": [39.548688, -119.821703]
+        },
+        {
+            "key": "barnes&noble",
+            "name": "Barnes & Noble",
+            "latLng": [39.475437,-119.790063]
+        },
+        {
+            "key": "bestbuy",
+            "name": "Best Buy",
+            "latLng": [39.474563,-119.789812]
+        },
+        {
+            "key": "bibocoffeeco_record",
+            "name": "Former Site of Bibo Coffee Co.",
+            "latLng": [39.536938,-119.811063]
+        },
+        {
+            "key": "canes_nvirginia",
+            "name": "Raising Cane's Chicken Fingers",
+            "latLng": [39.548263, -119.821538]
+        },
+        {
+            "key": "capriottis_nvirginia",
+            "name": "Capriotti's Sandwich Shop",
+            "latLng": [39.535062,-119.817188]
+        },
+        {
+            "key": "chickfila_smacarran",
+            "name": "Chick-Fil-A",
+            "latLng": [39.477312,-119.792187]
+        },
+        {
+            "key": "chipotle_lincoln",
+            "name": "Chipotle Mexican Grill",
+            "latLng": [39.533938,-119.718187]
+        },
+        {
+            "key": "circuscircus",
+            "name": "Circus Circus Hotel Casino Reno<br>Former Site of Wolf Pack Tower",
+            "latLng": [39.532187,-119.815313]
+        },
+        {
+            "key": "costco_harvard",
+            "name": "Costco Wholesale",
+            "latLng": [39.503312,-119.784688]
+        },
+        {
+            "key": "dq_prater",
+            "name": "Dairy Queen Grill & Chill",
+            "latLng": [39.538313,-119.762313]
+        },
+        {
+            "key": "dutchbros_svirginia_89502",
+            "name": "Dutch Bros Coffee",
+            "latLng": [39.484313,-119.793188]
+        },
+        {
+            "key": "eldorado",
+            "name": "Eldorado Resort Casino",
+            "latLng": [39.529187,-119.814688]
+        },
+        {
+            "key": "goldenflower",
+            "name": "Golden Flower Vietnamese Restaurant",
+            "latLng": [39.530812,-119.817688]
+        },
+        {
+            "key": "greatfullgardens",
+            "name": "Great Full Gardens",
+            "latLng": [39.519188,-119.810312]
+        },
+        {
+            "key": "harrahs",
+            "name": "Former Site of Harrah's Reno",
+            "latLng": [39.527648, -119.812458]
+        },
+        {
+            "key": "hobbylobby",
+            "name": "Hobby Lobby",
+            "latLng": [39.473438,-119.789812]
+        },
+        {
+            "key": "identityreno",
+            "name": "Identity Reno",
+            "latLng": [39.544187,-119.819437]
+        },
+        {
+            "key": "ikes",
+            "name": "Ike's Sandwiches",
+            "latLng": [39.548376, -119.821545]
+        },
+        {
+            "key": "immersium",
+            "name": "The Immersium",
+            "latLng": [39.485312,-119.788562]
+        },
+        {
+            "key": "insomnia",
+            "name": "Insomnia Cookies",
+            "latLng": [39.536812,-119.816688]
+        },
+        {
+            "key": "jacksons_nvirginia",
+            "name": "Jacksons Food Stores",
+            "latLng": [39.536437,-119.816688]
+        },
+        {
+            "key": "jackinthebox_smacarran",
+            "name": "Jack in the Box",
+            "latLng": [39.477312,-119.785812]
+        },
+        {
+            "key": "l&l_svirginia",
+            "name": "L&L Hawaiian Barbecue",
+            "latLng": [39.480812,-119.789812]
+        },
+        {
+            "key": "laughingplanet_nvirginia",
+            "name": "Laughing Planet",
+            "latLng": [39.536938,-119.816812]
+        },
+        {
+            "key": "mcdonalds_keystone",
+            "name": "McDonald's",
+            "latLng": [39.527938,-119.826937]
+        },
+        {
+            "key": "mcdonalds_maeanne",
+            "name": "McDonald's",
+            "latLng": [39.531688,-119.865313]
+        },
+        {
+            "key": "mcdonalds_nvirginia",
+            "name": "McDonald's",
+            "latLng": [39.530687,-119.814312]
+        },
+        {
+            "key": "meadowood",
+            "name": "Meadowood Mall",
+            "latLng": [39.473937,-119.782813]
+        },
+        {
+            "key": "nevadamuseumofart",
+            "name": "Nevada Museum of Art",
+            "latLng": [39.520812,-119.813437]
+        },
+        {
+            "key": "outletsatlegends",
+            "name": "The Outlets at Legends",
+            "latLng": [39.531688,-119.720938]
+        },
+        {
+            "key": "rei",
+            "name": "REI",
+            "latLng": [39.502187,-119.786687]
+        },
+        {
+            "key": "renocomputerfix",
+            "name": "Reno Computer Fix",
+            "latLng": [39.514063,-119.802688]
+        },
+        {
+            "key": "rno",
+            "name": "Reno-Tahoe International Airport",
+            "latLng": [39.499562,-119.768062]
+        },
+        {
+            "key": "robertos_nvirginia",
+            "name": "Roberto's Taco Shop",
+            "latLng": [39.535062,-119.816063]
+        },
+        {
+            "key": "scheels",
+            "name": "Scheels",
+            "latLng": [39.531063,-119.721812]
+        },
+        {
+            "key": "safeway_maeanne",
+            "name": "Safeway",
+            "latLng": [39.530812,-119.867188]
+        },
+        {
+            "key": "sandsregency",
+            "name": "Sands Regency Casino Hotel",
+            "latLng": [39.528188,-119.818938]
+        },
+        {
+            "key": "silverlegacy",
+            "name": "Silver Legacy Resort Casino",
+            "latLng": [39.530438,-119.814937]
+        },
+        {
+            "key": "silverandblueoutfitters_nvirginia",
+            "name": "Silver and Blue Outfitters",
+            "latLng": [39.543813,-119.819063]
+        },
+        {
+            "key": "sizzlepie",
+            "name": "Sizzle Pie",
+            "latLng": [39.523938,-119.810187]
+        },
+        {
+            "key": "starbucks_summit",
+            "name": "Starbucks",
+            "latLng": [39.404562,-119.751063]
+        },
+        {
+            "key": "sup",
+            "name": "Süp",
+            "latLng": [39.518563,-119.809812]
+        },
+        {
+            "key": "target_lincoln",
+            "name": "Target",
+            "latLng": [39.535562,-119.716938]
+        },
+        {
+            "key": "textbookbrokers_9th",
+            "name": "Former Site of Textbook Brokers - UNR",
+            "latLng": [39.536062,-119.816063]
+        },
+        {
+            "key": "textbookbrokers_nvirginia",
+            "name": "Textbook Brokers - UNR",
+            "latLng": [39.536812,-119.816688]
+        },
+        {
+            "key": "unnamed0",
+            "latLng": [39.545876, -119.864839]
+        },
+        {
+            "key": "unnamed1",
+            "latLng": [39.536938,-119.816937]
+        },
+        {
+            "key": "unr_ansari",
+            "name": "Ansari Business Building",
+            "latLng": [39.540063,-119.814562]
+        },
+        {
+            "key": "unr_argenta",
+            "name": "Argenta Hall",
+            "latLng": [39.539063,-119.817437]
+        },
+        {
+            "key": "unr_cain",
+            "name": "Edmund J. Cain Hall",
+            "latLng": [39.542187,-119.813812]
+        },
+        {
+            "key": "unr_cfa",
+            "name": "Church of Fine Arts",
+            "latLng": [39.541313,-119.816688]
+        },
+        {
+            "key": "unr_davidson",
+            "name": "The Davidson Academy",
+            "latLng": [39.538688,-119.816563]
+        },
+        {
+            "key": "unr_delamare",
+            "name": "DeLaMare Science and Engineering Library",
+            "latLng": [39.539437,-119.814437]
+        },
+        {
+            "key": "unr_den",
+            "name": "The Den",
+            "latLng": [39.538956, -119.815680]
+        },
+        {
+            "key": "unr_dmsc",
+            "name": "Davidson Mathematics & Science Center",
+            "latLng": [39.538938,-119.812313]
+        },
+        {
+            "key": "unr_frandsen",
+            "name": "Frandsen Humanities",
+            "latLng": [39.537688,-119.815062]
+        },
+        {
+            "key": "unr_greatbasin",
+            "name": "Great Basin Residence Hall",
+            "latLng": [39.539687,-119.816812]
+        },
+        {
+            "key": "unr_joe",
+            "name": "Joe Crowley Student Union",
+            "latLng": [39.545313,-119.816187]
+        },
+        {
+            "key": "unr_kc",
+            "name": "Mathewson-IGT Knowledge Center",
+            "latLng": [39.543688,-119.815438]
+        },
+        {
+            "key": "unr_lawlor",
+            "name": "Lawlor Events Center",
+            "latLng": [39.545063,-119.818313]
+        },
+        {
+            "key": "unr_manzanita",
+            "name": "Manzanita and Juniper Halls",
+            "latLng": [39.537507, -119.816286]
+        },
+        {
+            "key": "unr_manzanitabowl",
+            "name": "Manzanita Bowl",
+            "latLng": [39.536812,-119.815562]
+        },
+        {   
+            "key": "unr_mss",
+            "name": "Mack Social Sciences",
+            "latLng": [39.540815, -119.815336]
+        },
+        {
+            "key": "unr_overlook",
+            "name": "The Overlook",
+            "latLng": [39.538438,-119.815812]
+        },
+        {
+            "key": "unr_peavine",
+            "name": "Peavine Hall",
+            "latLng": [39.537688,-119.818062]
+        },
+        {
+            "key": "unr_psac",
+            "name": "William N. Pennington Student Achievement Center",
+            "latLng": [39.539812,-119.815812]
+        },
+        {
+            "key": "unr_quad",
+            "name": "The Quad",
+            "latLng": [39.538062,-119.814063]
+        },
+        {
+            "key": "unr_raggio",
+            "name": "William J. Raggio Building",
+            "latLng": [39.542063,-119.814937]
+        },
+        {
+            "key": "unr_schulich",
+            "name": "Schulich Lecture Hall",
+            "latLng": [39.541062,-119.814562]
+        },
+        {
+            "key": "unr_scrugham",
+            "name": "Scrugham Engineering and Mines",
+            "latLng": [39.539687,-119.813437]
+        },
+        {
+            "key": "ups_keystone",
+            "name": "UPS Store",
+            "latLng": [39.528188,-119.829688]
+        },
+        {
+            "key": "usps_sierra",
+            "name": "United States Postal Service",
+            "latLng": [39.525937,-119.814688]
+        },
+        {
+            "key": "usps_nvirginia",
+            "name": "United States Postal Service",
+            "latLng": [39.548563,-119.820688]
+        },
+        {
+            "key": "walgreens_nvirginia",
+            "name": "Walgreens",
+            "latLng": [39.534937,-119.814937]
+        },
+        {
+            "key": "walmart_2nd",
+            "name": "Walmart Supercenter",
+            "latLng": [39.528813,-119.781688]
+        },
+        {
+            "key": "walmart_7th",
+            "name": "Walmart Supercenter",
+            "latLng": [39.535562,-119.867937]
+        },
+        {
+            "key": "whitakerpark",
+            "name": "Whitaker Park",
+            "latLng": [39.533062,-119.823437]
+        }
+    ]
+}

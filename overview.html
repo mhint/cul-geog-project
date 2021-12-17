@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang='en'>
+    <head>
+        <meta charset='utf-8'>
+        <meta name='viewport' content='width=device-width, initial-scale=1'>
+
+        <link rel='stylesheet' type='text/css' href='css/site.css'>
+        <link href='https://fonts.googleapis.com/icon?family=Material+Icons' rel='stylesheet'>
+
+        <link rel='preconnect' href='https://fonts.gstatic.com'>
+        <link href='https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap' rel='stylesheet'>
+  
+        <script src='lib/jquery/3.5.1/jquery.min.js'></script>
+        <script src='lib/Leaflet.EdgeBuffer/leaflet.edgebuffer.js'></script>
+        <script src='lib/RainbowVis-JS/rainbowvis.js'></script>
+
+        <link rel='stylesheet' href='https://unpkg.com/leaflet@1.7.1/dist/leaflet.css'
+        integrity='sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=='
+        crossorigin=''/>
+        <script src='https://unpkg.com/leaflet@1.7.1/dist/leaflet.js'
+        integrity='sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=='
+        crossorigin=''></script>
+        
+        <script>
+            $.getScript('map_functions.js');
+        </script>
+        
+        <title>How COVID-19 Remapped My World</title>
+        <style>
+            #linkto-overview.nav-link::after {
+                visibility: visible;
+            }
+        </style>
+    </head>
+    <body>
+        <div id='nav'>
+            <div id='nav-top'>
+                <div id='nav-link-row'>
+                    <a href='../index.html' title='Exit'><div id='nav-link-home' class='material-icons'>transit_enterexit</div></a>
+                    <a href='index.html' id='linkto-home' class='nav-link' title='Home - How COVID-19 Remapped My World'>
+                        <div>HOME</div>
+                    </a>
+                    <a href='overview.html' id='linkto-overview' class='nav-link' title='Overview: Before and After March 2020'>
+                        <div>OVERVIEW</div>
+                    </a>
+                    <a href='timeline.html' id='linkto-timeline' class='nav-link' title='Timeline: 2019-20 By Month'>
+                        <div>TIMELINE</div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div id='content-wrapper'>
+            <div class='subheading'>HOW COVID-19 REMAPPED MY WORLD</div>
+            <h1><b>Overview: Before and After Mar. 2020</b></h1>
+            <p>These two data layers represent my personal visits around places in Reno&mdash;including school and other
+                activities&mdash;before and after March 2020, when the novel coronavirus disease was declared a pandemic and Nevada
+                announced a state of emergency and its first campus closures.
+            </p>
+            <br>
+            <div id='map-wrapper-box'>
+                <span></span>
+                <div id='map-wrapper'>
+                    <div id='map-tooltip'><span></span></div>
+                    <div id='map-widget-wrapper'>
+                        <div class='map-widget-row'>
+                            <div>
+                                <div id='map-year-widget-container'>
+                                    <div class='toggle-switch'></div>
+                                    <ul>
+                                        <li id='toggle-switch-value0' style='color: #ffffff'>Before</li>
+                                        <li id='toggle-switch-value1'>After</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div>
+                                <div class='map-action-circle-container' id='map-fullscreen-button'>
+                                    <span class='material-icons'>fullscreen</span>
+                                </div>
+                                <div class='map-action-vertical-container' id='map-controls'>
+                                    <span class='material-icons' id='map-action-recenter'>gps_fixed</span>
+                                    <span class='material-icons' id='map-action-zoomin'>zoom_in</span>
+                                    <span class='material-icons' id='map-action-zoomout'>zoom_out</span>
+                                </div>
+                            </div>
+                        </div>
+                        <script>
+                            let switchValue = '0';
+                            let isFullscreen = false;
+
+                            $('#map-year-widget-container').click(function() {
+                                if (switchValue == '0') {
+                                    switchValue = '1';
+                                    viewMapData(after_aggregate);
+                                    $(this).children('.toggle-switch').css('transform', 'translateX(100px)');
+                                    $(this).find('#toggle-switch-value0').css('color', '#333333');
+                                    $(this).find('#toggle-switch-value1').css('color', '#ffffff');
+    
+                                } else if (switchValue == '1') {
+                                    switchValue = '0';
+                                    viewMapData(before_aggregate);
+                                    $(this).children('.toggle-switch').css('transform', 'translateX(0px)');
+                                    $(this).find('#toggle-switch-value0').css('color', '#ffffff');
+                                    $(this).find('#toggle-switch-value1').css('color', '#333333');
+                                }
+                            });
+                            $('#map-fullscreen-button').click(function() {
+                                if (isFullscreen == false) {
+                                    isFullscreen = true;
+                                    $('#map-wrapper-box').addClass('fullscreen');
+                                    $('#map-wrapper').addClass('fullscreen');
+                                    $('#nav').css('z-index', '0');
+                                    $(this).children('.material-icons').html('fullscreen_exit');
+                                    map.invalidateSize();
+                                } else if (isFullscreen == true) {
+                                    isFullscreen = false;
+                                    $('#map-wrapper-box').removeClass('fullscreen');
+                                    $('#map-wrapper').removeClass('fullscreen');
+                                    $('#nav').css('z-index', '999');
+                                    $(this).children('.material-icons').html('fullscreen');
+                                    map.invalidateSize();
+                                }
+                            });
+                            $('#map-action-recenter').click(function() {
+                                map.setView([39.53, -119.814], 14);
+                            });
+                            $('#map-action-zoomin').click(function() {
+                                map.zoomIn(1);
+                            })
+                            $('#map-action-zoomout').click(function() {
+                                map.zoomOut(1);
+                            });
+                        </script>
+                    </div>
+                    <div id='map'></div>
+                    <div id='map-attribution'>
+                        Leaflet | &copy; <a href='https://www.mapbox.com/about/maps/'>Mapbox</a>
+                        &copy; <a href='https://www.openstreetmap.org/copyright'>OpenStreetMap</a> contributors
+                    </div>
+                    <script>
+                        const url = `https://api.mapbox.com/styles/v1/adenark/ckhy6i7xh1ikn19phnjv6mmvb/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoiYWRlbmFyayIsImEiOiJja2RrbTB6aDkwcHh0MnhuMDBjMWcyY3l4In0.XkXOWFkV9tQWhQVIKMFJzA`;
+                        const map = L.map('map', {
+                            attributionControl: false,
+                            zoomControl: false,
+                            boxZoom: false,
+                            doubleClickZoom: false,
+                            maxBounds: L.latLngBounds(L.latLng(39.73, -120.014), L.latLng(39.33, -119.614)),
+                            maxBoundsViscosity: 1.0
+                        });
+                        const tileLayer = L.tileLayer(url, {
+                            tileSize: 512,
+                            zoomOffset: -1,
+                            edgeBufferTiles: 5,
+                            bounds: L.latLngBounds(L.latLng(39.73, -120.014), L.latLng(39.33, -119.614)),
+                        }).addTo(map);
+                        const layerGroup_dataMarker = L.layerGroup().addTo(map);
+                        
+                        map.setView([39.53, -119.814], 14);
+                        map.setMinZoom(14);
+
+                        setTimeout(function() {
+                            viewMapData(before_aggregate, true);
+                            $('#map').css('filter', 'none');
+                        }, 500);
+                    </script>
+                </div>
+            </div>
+        </div>
+        <script>
+            if (/Trident\/|MSIE /.test(window.navigator.userAgent)) {
+                $('body').html('Your browser is not supported.');
+            }
+        </script>
+    </body>
+</html>

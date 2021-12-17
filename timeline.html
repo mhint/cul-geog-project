@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang='en'>
+    <head>
+        <meta charset='utf-8'>
+        <meta name='viewport' content='width=device-width, initial-scale=1'>
+
+        <link rel='stylesheet' type='text/css' href='css/site.css'>
+        <link href='https://fonts.googleapis.com/icon?family=Material+Icons' rel='stylesheet'>
+
+        <link rel='preconnect' href='https://fonts.gstatic.com'>
+        <link href='https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap' rel='stylesheet'>
+  
+        <script src='lib/jquery/3.5.1/jquery.min.js'></script>
+        <script src='lib/Leaflet.EdgeBuffer/leaflet.edgebuffer.js'></script>
+        <script src='lib/RainbowVis-JS/rainbowvis.js'></script>
+
+        <link rel='stylesheet' href='https://unpkg.com/leaflet@1.7.1/dist/leaflet.css'
+        integrity='sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=='
+        crossorigin=''/>
+        <script src='https://unpkg.com/leaflet@1.7.1/dist/leaflet.js'
+        integrity='sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=='
+        crossorigin=''></script>
+
+        <script>
+            $.getScript('map_functions.js');
+        </script>
+        
+        <title>How COVID-19 Remapped My World</title>
+        <style>
+            #linkto-timeline.nav-link::after {
+                visibility: visible;
+            }
+        </style>
+    </head>
+    <body>
+        <div id='nav'>
+            <div id='nav-top'>
+                <div id='nav-link-row'>
+                    <a href='../index.html' title='Exit'><div id='nav-link-home' class='material-icons'>transit_enterexit</div></a>
+                    <a href='index.html' id='linkto-home' class='nav-link' title='Home - How COVID-19 Remapped My World'>
+                        <div>HOME</div>
+                    </a>
+                    <a href='overview.html' id='linkto-overview' class='nav-link' title='Overview: Before and After March 2020'>
+                        <div>OVERVIEW</div>
+                    </a>
+                    <a href='timeline.html' id='linkto-timeline' class='nav-link' title='Timeline: 2019-20 By Month'>
+                        <div>TIMELINE</div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div id='content-wrapper'>
+            <div class='subheading'>HOW COVID-19 REMAPPED MY WORLD</div>
+            <h1><b>Timeline: 2019-20 By Month</b></h1>
+            <p>As campus closures and social distancing policies aimed to mitigate coronavirus cases, I minimized my range and frequency of travel.
+                Whereas the UNR campus was the central location of my activities before lockdowns, shopping trips comprised most of my activites outside
+                post-March 2020. An absence of data represents time spent outside of Reno.
+            </p>
+            <br>
+            <div id='map-wrapper-box'>
+                <span></span>
+                <div id='map-wrapper'>
+                    <div id='map-tooltip'><span></span></div>
+                    <div id='map-widget-wrapper'>
+                        <div class='map-widget-row'>
+                            <div>
+                                <div id='map-timeline-widget-container'>
+                                    <div class='map-widget-inner-row'>
+                                        <span class='material-icons' id='timeline-month-decrement'>chevron_left</span>
+                                        <div id='map-timeline-month'>JAN 2019</div>
+                                        <span class='material-icons' id='timeline-month-increment'>chevron_right</span>
+                                    </div>
+                                    <div class='slider-container'>
+                                        <div id='timeline-pseudo-slider'></div>
+                                        <input type="range" min="1" max="24" value="1" class="slider" id="timeline-slider">
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class='map-action-circle-container' id='map-fullscreen-button'>
+                                    <span class='material-icons'>fullscreen</span>
+                                </div>
+                                <div class='map-action-vertical-container' id='map-controls'>
+                                    <span class='material-icons' id='map-action-recenter'>gps_fixed</span>
+                                    <span class='material-icons' id='map-action-zoomin'>zoom_in</span>
+                                    <span class='material-icons' id='map-action-zoomout'>zoom_out</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <script>
+                        let isFullscreen = false;
+
+                        $('#map-fullscreen-button').click(function() {
+                            if (isFullscreen == false) {
+                                isFullscreen = true;
+                                $('#map-wrapper-box').addClass('fullscreen');
+                                $('#map-wrapper').addClass('fullscreen');
+                                $('#nav').css('z-index', '0');
+                                $(this).children('.material-icons').html('fullscreen_exit');
+                                map.invalidateSize();
+                            } else if (isFullscreen == true) {
+                                isFullscreen = false;
+                                $('#map-wrapper-box').removeClass('fullscreen');
+                                $('#map-wrapper').removeClass('fullscreen');
+                                $('#nav').css('z-index', '999');
+                                $(this).children('.material-icons').html('fullscreen');
+                                map.invalidateSize();
+                            }
+                        });
+                        $('#map-action-recenter').click(function() {
+                            map.setView([39.53, -119.814], 14);
+                        });
+                        $('#map-action-zoomin').click(function() {
+                            map.zoomIn(1);
+                        })
+                        $('#map-action-zoomout').click(function() {
+                            map.zoomOut(1);
+                        });
+
+                        let timelineSection = '<div class="timeline-month"></div>';
+
+                        for (let i = 0; i < 24; i++) {
+                            $('#timeline-pseudo-slider').append(timelineSection);
+                        }
+                        $('#timeline-slider').on('input', function() {
+                            sliderValueToMonth(this.value);
+                        });
+                        $('#timeline-month-decrement').click(function() {
+                            let e = $('#timeline-slider');
+                            e.val(Number(e.val()) - 1);
+                            sliderValueToMonth(e.val());
+                        });
+                        $('#timeline-month-increment').click(function() {
+                            let e = $('#timeline-slider');
+                            e.val(Number(e.val()) + 1);
+                            sliderValueToMonth(e.val());
+                        });
+                        sliderValueToMonth = (v) => {
+                            let d = new Date();
+
+                            if (v <= 12) {
+                                viewMapData(dataByMonth['2019'][v], false);
+                                d.setFullYear(2019);
+                            } else if (v > 12 && v <= 24) {
+                                v -= 12;
+                                viewMapData(dataByMonth['2020'][v], false);
+                                d.setFullYear(2020);
+                            }
+                            d.setMonth(v - 1);
+                            const year = new Intl.DateTimeFormat('en', { year: 'numeric' }).format(d);
+                            const month = new Intl.DateTimeFormat('en', { month: 'short' }).format(d);
+                            const monthString = `${month} ${year}`.toUpperCase();
+                            $('#map-timeline-month').html(monthString);
+                        }
+                    </script>
+                    <div id='map'></div>
+                    <div id='map-attribution'>
+                        Leaflet | &copy; <a href='https://www.mapbox.com/about/maps/'>Mapbox</a>
+                        &copy; <a href='https://www.openstreetmap.org/copyright'>OpenStreetMap</a> contributors
+                    </div>
+                    <script>
+                        const url = `https://api.mapbox.com/styles/v1/adenark/ckhy6i7xh1ikn19phnjv6mmvb/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoiYWRlbmFyayIsImEiOiJja2RrbTB6aDkwcHh0MnhuMDBjMWcyY3l4In0.XkXOWFkV9tQWhQVIKMFJzA`;
+                        const map = L.map('map', {
+                            attributionControl: false,
+                            zoomControl: false,
+                            boxZoom: false,
+                            doubleClickZoom: false,
+                            maxBounds: L.latLngBounds(L.latLng(39.73, -120.014), L.latLng(39.33, -119.614)),
+                            maxBoundsViscosity: 1.0
+                        });
+                        const tileLayer = L.tileLayer(url, {
+                            tileSize: 512,
+                            zoomOffset: -1,
+                            edgeBufferTiles: 5,
+                            bounds: L.latLngBounds(L.latLng(39.73, -120.014), L.latLng(39.33, -119.614)),
+                        }).addTo(map);
+                        const layerGroup_dataMarker = L.layerGroup().addTo(map);
+                        
+                        map.setView([39.53, -119.814], 14);
+                        map.setMinZoom(14);
+
+                        setTimeout(function() {
+                            viewMapData(dataByMonth['2019'][1], false);
+                            $('#map').css('filter', 'none');
+                        }, 500);
+                    </script>
+                </div>
+            </div>
+        </div>
+        <script>
+            if (/Trident\/|MSIE /.test(window.navigator.userAgent)) {
+                $('body').html('Your browser is not supported.');
+            }
+        </script>
+    </body>
+</html>
